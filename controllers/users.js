@@ -15,7 +15,7 @@ router.get('/:id', async (req, res) => {
         res.json(user)
     } catch (error) {
         console.log('Error:', error)
-        res.status(500).json({ message: 'error creating user'})
+        res.status(500).json({ message: 'error creating user' })
     }
 })
 
@@ -27,16 +27,29 @@ router.post('/', async (req, res) => {
         res.json(user)
     } catch (error) {
         console.log('Error:', error)
-        res.status(500).json({ message: 'error creating user'})
+        res.status(500).json({ message: 'error creating user' })
     }
 })
+
+// Update users
+// router.put('/:id', async (req, res) => {
+//     try {
+//         const { id } = req.params
+//         const user = await User.findByIdAndUpdate(id, req.body, { new: true });
+//         res.json(user)
+//     } catch (error) {
+//         console.log('Error:', error)
+//         res.status(500).json({ message: 'error updating user' })
+//     }
+// })
+
 
 // Delete users
 router.delete('/:id', async (req, res) => {
     try {
         const { id } = req.params
-        await User.findByIdAndDelete(id)     
-        res.json({ message: 'user deleted' })   
+        await User.findByIdAndDelete(id)
+        res.json({ message: 'user deleted' })
     } catch (error) {
         console.log('Error:', error)
         res.status(500).json({ message: 'error deleting user' })
